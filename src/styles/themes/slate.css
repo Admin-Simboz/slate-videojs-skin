@@ -1,0 +1,96 @@
+@layer base.theme, base.preset, base.preferences;
+
+/*
+ * Slate theme tokens. The skin reads like a film-set clapperboard: a solid ink board with chalk-white type and one
+ * production-yellow accent. Surfaces are opaque on purpose, so controls stay legible over bright and dark footage alike.
+ * The public properties (--media-accent-color, --media-accent-text-color, --media-border-radius) still restyle it.
+ */
+@layer base.preset {
+  .media-skin[data-theme="slate"] {
+    /* Palette. */
+    --slate-ink: #0c0c0d;
+    --slate-ink-raised: #18181a;
+    --slate-chalk: #f4f1e8;
+    --slate-chalk-dim: rgb(244 241 232 / 0.66);
+    --slate-rule: rgb(244 241 232 / 0.22);
+    --slate-yellow: #ffc61a;
+    --slate-rec: #ff4b3e;
+    --slate-tape: #ece6d6;
+    --slate-tape-ink: #1b1a17;
+
+    /* Type. Condensed grotesk for labels, monospace for timecode, a marker hand for the slate's chalk notes. */
+    --slate-font-label: "Archivo", "Arial Narrow", system-ui, sans-serif;
+    --slate-font-code: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    --slate-font-hand: "Permanent Marker", "Comic Sans MS", cursive;
+
+    /* Geometry. */
+    --slate-board-radius: calc(var(--media-spacing) * 1.5);
+    --slate-board-inset: calc(var(--media-spacing) * 3);
+    --slate-stick-height: calc(var(--media-spacing) * 3.5);
+    --slate-stick-lift: calc(var(--media-spacing) * 7);
+    --slate-hit: calc(var(--media-spacing) * 10);
+
+    /* Motion. A short overshoot gives the clapstick its snap. */
+    --slate-ease-snap: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --slate-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Video.js tokens mapped onto the palette. */
+    --media-background: var(--slate-ink);
+    --media-foreground: var(--slate-chalk);
+    --media-accent: var(--media-accent-color, var(--slate-yellow));
+    --media-accent-foreground: var(--media-accent-text-color, var(--slate-ink));
+    --media-primary: var(--media-accent);
+    --media-primary-foreground: var(--media-accent-foreground);
+    --media-muted: var(--slate-ink-raised);
+    --media-muted-foreground: var(--slate-chalk-dim);
+    --media-popover: var(--slate-ink);
+    --media-popover-foreground: var(--slate-chalk);
+    --media-popover-boundary-offset: calc(var(--media-spacing) * 3);
+    --media-tooltip-boundary-offset: var(--media-popover-boundary-offset);
+    --media-ring: var(--media-accent);
+    --media-button-highlight: rgb(244 241 232 / 0.12);
+    --media-video-border-radius: var(--media-border-radius, calc(var(--media-spacing) * 2.5));
+    --media-control-radius: calc(var(--media-spacing) * 1);
+    --media-controls-radius: var(--slate-board-radius);
+    --media-menu-item-radius: calc(var(--media-spacing) * 0.75);
+    --media-popup-radius: var(--slate-board-radius);
+    --media-dialog-radius: var(--slate-board-radius);
+    --media-scrollbar-thumb-color: var(--slate-rule);
+    --media-shadow-surface: 0 calc(var(--media-spacing) * 2) calc(var(--media-spacing) * 6) rgb(0 0 0 / 0.45);
+    --media-shadow-surface-inset: none;
+    --media-shadow-thumb: none;
+    --media-backdrop-filter-surface: none;
+    --media-backdrop-filter-indicator: none;
+    --media-backdrop-filter-dialog: none;
+  }
+
+  @media (prefers-contrast: more) {
+    .media-skin[data-theme="slate"] {
+      --slate-ink: #000;
+      --slate-chalk-dim: var(--slate-chalk);
+      --slate-rule: rgb(244 241 232 / 0.6);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .media-skin[data-theme="slate"] {
+      --slate-ink: Canvas;
+      --slate-ink-raised: Canvas;
+      --slate-chalk: CanvasText;
+      --slate-chalk-dim: CanvasText;
+      --slate-rule: CanvasText;
+      --slate-yellow: Highlight;
+      --slate-rec: Highlight;
+      --slate-tape: Canvas;
+      --slate-tape-ink: CanvasText;
+      --media-background: Canvas;
+      --media-popover: Canvas;
+      --media-popover-foreground: CanvasText;
+      --media-foreground: CanvasText;
+      --media-accent: Highlight;
+      --media-primary: Highlight;
+      --media-primary-foreground: HighlightText;
+      --media-ring: Highlight;
+    }
+  }
+}

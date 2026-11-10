@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slate · A clapperboard skin for Video.js</title>
+    <meta name="description" content="Slate dresses the Video.js v10 player as a film-set clapperboard: a chalk slate of controls, clapsticks that snap shut when the take rolls, camera timecode, and a film-strip timeline." />
+    <meta name="theme-color" content="#0c0c0d" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect y='11' width='32' height='19' rx='3' fill='%230c0c0d'/%3E%3Cpath d='M1 4l29-3 1 7-29 3z' fill='%23f4f1e8'/%3E%3Cpath d='M7 3.4l5 6.8M15 2.5l5 6.8M23 1.7l5 6.8' stroke='%230c0c0d' stroke-width='3'/%3E%3Ccircle cx='16' cy='20.5' r='4' fill='%23ffc61a'/%3E%3C/svg%3E" />
+  </head>
+  <body class="site">
+    <a class="site-skip" href="#player">Skip to the player</a>
+
+    <header class="site-header">
+      <span class="site-wordmark">Slate</span>
+      <nav class="site-nav" aria-label="Site">
+        <a href="#notes">Design notes</a>
+        <a href="#access">Access</a>
+        <a href="./workbench.html">Workbench</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="site-hero" aria-labelledby="hero-title">
+        <p class="site-kicker">A skin for Video.js v10</p>
+        <h1 id="hero-title" class="site-title">Every play is a <span class="site-marker">take.</span></h1>
+        <p class="site-lede">
+          Slate dresses the player as a film-set clapperboard. Press play and the sticks clap, the timecode starts
+          counting frames, and the film strip rolls.
+        </p>
+        <div id="player" class="site-player" tabindex="-1"></div>
+        <p class="site-caption">Try it: press play, scrub the strip, then let it run to the end.</p>
+      </section>
+
+      <section id="notes" class="site-section" aria-labelledby="notes-title">
+        <h2 id="notes-title" class="site-heading"><span class="site-label">Call sheet</span> Design notes</h2>
+        <ol class="site-scenes">
+          <li class="site-scene">
+            <span class="site-label">Sc. 01</span>
+            <h3>The opening slate</h3>
+            <p>Before the first play, a full clapperboard sits on the poster. Hit play: the stick claps, one soft sync flash fires, and the card drops out of frame.</p>
+          </li>
+          <li class="site-scene">
+            <span class="site-label">Sc. 02</span>
+            <h3>A board, not a bar</h3>
+            <p>Controls live on a solid ink slate with chalk type, so they read over bright skies and dark interiors alike. One accent, production yellow.</p>
+          </li>
+          <li class="site-scene">
+            <span class="site-label">Sc. 03</span>
+            <h3>Clapsticks with timing</h3>
+            <p>Hinged at the left, open while paused, snapping shut when playback rolls. The angle adapts to the player width, so the gap always looks right.</p>
+          </li>
+          <li class="site-scene">
+            <span class="site-label">Sc. 04</span>
+            <h3>Camera timecode</h3>
+            <p>HH:MM:SS:FF, counting frames smoothly between player updates. Screen readers still get the plain time from Video.js.</p>
+          </li>
+          <li class="site-scene">
+            <span class="site-label">Sc. 05</span>
+            <h3>The film-strip timeline</h3>
+            <p>Sprocket holes punched through track, buffer, and progress. Chapters read as separate shots, with an editor’s flagged playhead.</p>
+          </li>
+          <li class="site-scene">
+            <span class="site-label">Sc. 06</span>
+            <h3>Set details</h3>
+            <p>A REC/STBY tally light, the title on camera tape, a TAKE counter that ticks with every replay, and a closing “That’s a wrap!”.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="access" class="site-section site-split" aria-labelledby="access-title">
+        <div>
+          <h2 id="access-title" class="site-heading"><span class="site-label">Safety brief</span> Made for everyone</h2>
+          <ul class="site-checks">
+            <li>Every control reachable by keyboard, in visual order, with a visible yellow focus ring.</li>
+            <li>Opaque surfaces keep text and icons legible over any footage.</li>
+            <li>Touch targets grow on phones; layouts adapt from wide screens to 340px portrait.</li>
+            <li>Reduced motion turns off the clap, the flash, and the tally blink.</li>
+            <li>Forced-colors mode falls back to system colors.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="site-heading"><span class="site-label">Cue cards</span> Keyboard</h2>
+          <dl class="site-keys">
+            <div><dt><kbd>Space</kbd> <kbd>K</kbd></dt><dd>Play / pause</dd></div>
+            <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Seek</dd></div>
+            <div><dt><kbd>↑</kbd> <kbd>↓</kbd></dt><dd>Volume</dd></div>
+            <div><dt><kbd>M</kbd></dt><dd>Mute</dd></div>
+            <div><dt><kbd>F</kbd></dt><dd>Fullscreen</dd></div>
+            <div><dt><kbd>C</kbd></dt><dd>Captions</dd></div>
+            <div><dt><kbd>0</kbd>–<kbd>9</kbd></dt><dd>Jump to 0–90%</dd></div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Designed by Ammar Yasir for the Video.js Skins Design Challenge · Contra × Mux.</p>
+      <p>Video.js v10 · Open source under Apache-2.0 · Footage: <a href="https://www.framer.com/@ammar-yasir-1bsb76/">Selected Works</a>, Ammar Yasir’s Framer templates, streamed by Mux.</p>
+    </footer>
+
+    <script type="module" src="/src/site/main.ts"></script>
+  </body>
+</html>

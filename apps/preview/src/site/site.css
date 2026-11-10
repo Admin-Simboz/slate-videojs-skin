@@ -1,0 +1,353 @@
+/* Showcase page for the Slate skin. Same palette and type as the skin; fonts are loaded by the skin itself. */
+:root {
+  --ink: #0c0c0d;
+  --ink-raised: #161618;
+  --chalk: #f4f1e8;
+  --chalk-dim: rgb(244 241 232 / 0.68);
+  --rule: rgb(244 241 232 / 0.16);
+  --yellow: #ffc61a;
+  --gutter: clamp(16px, 4vw, 48px);
+  --measure: 1120px;
+  --font-label: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-code: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-hand: "Permanent Marker", "Comic Sans MS", cursive;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.site {
+  margin: 0;
+  background-color: var(--ink);
+  /* Faint chalk dust. */
+  background-image:
+    radial-gradient(rgb(244 241 232 / 0.035) 1px, transparent 1px),
+    radial-gradient(rgb(244 241 232 / 0.025) 1px, transparent 1px);
+  background-size: 24px 24px, 37px 37px;
+  background-position: 0 0, 11px 17px;
+  color: var(--chalk);
+  font-family: var(--font-label);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+.site-skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 10;
+  padding: 8px 14px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.site-skip:focus {
+  top: 12px;
+}
+
+.site-label {
+  display: block;
+  font-family: var(--font-code);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+
+/* ------------------------------------------------------------ Header */
+
+.site-header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 28px var(--gutter) 20px;
+}
+
+/* A strip of clapper stripes along the top edge of the page. */
+.site-header::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 5;
+  height: 6px;
+  background: repeating-linear-gradient(-60deg, var(--chalk) 0 14px, var(--ink) 14px 28px);
+}
+
+.site-wordmark {
+  font-family: var(--font-hand);
+  font-size: 30px;
+  line-height: 1;
+  rotate: -3deg;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+  font-family: var(--font-code);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  padding-block: 6px;
+  text-decoration: none;
+  color: var(--chalk-dim);
+}
+
+.site-nav a:hover {
+  color: var(--yellow);
+}
+
+/* ------------------------------------------------------------ Hero */
+
+.site-hero {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: clamp(24px, 6vw, 64px) var(--gutter) 0;
+  text-align: center;
+}
+
+.site-kicker {
+  margin: 0 0 14px;
+  font-family: var(--font-code);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--chalk-dim);
+}
+
+.site-title {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 92px);
+  font-stretch: 75%;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.site-marker {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-weight: 400;
+  text-transform: none;
+  color: var(--yellow);
+  rotate: -4deg;
+}
+
+.site-lede {
+  max-width: 600px;
+  margin: 22px auto 0;
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--chalk-dim);
+}
+
+.site-player {
+  max-width: 1040px;
+  margin: clamp(32px, 6vw, 56px) auto 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 1px var(--rule),
+    0 40px 80px -24px rgb(0 0 0 / 0.8),
+    0 0 120px -40px rgb(255 198 26 / 0.25);
+}
+
+.site-player:focus {
+  outline: none;
+}
+
+.site-player media-i18n,
+.site-player video-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.site-caption {
+  margin: 18px 0 0;
+  font-family: var(--font-code);
+  font-size: 13px;
+  color: var(--chalk-dim);
+}
+
+/* ------------------------------------------------------------ Sections */
+
+.site-section {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 112px) var(--gutter) 0;
+}
+
+.site-heading {
+  margin: 0 0 32px;
+  font-size: clamp(30px, 4.5vw, 46px);
+  font-stretch: 75%;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.site-heading .site-label {
+  margin-bottom: 12px;
+}
+
+.site-scenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+}
+
+.site-scene {
+  padding: 28px;
+  background: var(--ink-raised);
+}
+
+.site-scene h3 {
+  margin: 14px 0 8px;
+  font-size: 22px;
+  font-stretch: 85%;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.site-scene p {
+  margin: 0;
+  color: var(--chalk-dim);
+}
+
+.site-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 56px;
+}
+
+.site-checks {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-checks li {
+  position: relative;
+  padding-left: 34px;
+  color: var(--chalk-dim);
+}
+
+.site-checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 4px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.site-keys {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.site-keys div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-keys dt {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-family: var(--font-code);
+  color: var(--chalk-dim);
+}
+
+.site-keys dd {
+  margin: 0;
+  color: var(--chalk-dim);
+}
+
+kbd {
+  display: inline-block;
+  min-width: 30px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: var(--chalk);
+  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.25);
+  color: var(--ink);
+  font-family: var(--font-code);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------ Footer */
+
+.site-footer {
+  max-width: var(--measure);
+  margin: clamp(72px, 10vw, 120px) auto 0;
+  padding: 28px var(--gutter) 40px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-code);
+  font-size: 13px;
+  color: var(--chalk-dim);
+}
+
+.site-footer p {
+  margin: 0 0 6px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
