@@ -1,0 +1,12 @@
+/* Embed overrides on top of preview.css: no padding, dark letterbox, and the 16:9 player fits the frame either way. */
+body:has(.embed-page) {
+  background: #0a0a0a;
+}
+
+.embed-page {
+  padding: 0;
+}
+
+.embed-page .preview-player {
+  max-width: min(100vw, calc(100vh * 16 / 9));
+}

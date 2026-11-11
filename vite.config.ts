@@ -25,11 +25,13 @@ export default defineConfig({
     outDir: path('./dist'),
     emptyOutDir: true,
     rolldownOptions: {
-      // The public showcase (site root), the workbench shell, and the preview page the workbench frames.
+      // The public showcase (site root), the workbench shell, the preview page the workbench frames, and the
+      // bare player other sites embed in an <iframe>.
       input: {
         site: path('./apps/preview/index.html'),
         workbench: path('./apps/preview/workbench.html'),
         preview: path('./apps/preview/preview.html'),
+        embed: path('./apps/preview/embed.html'),
       },
     },
   },
