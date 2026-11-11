@@ -25,11 +25,11 @@
         <p class="site-kicker">A skin for Video.js v10</p>
         <h1 id="hero-title" class="site-title">Every play is a <span class="site-marker">take.</span></h1>
         <p class="site-lede">
-          Slate dresses the player as a film-set clapperboard. Press play and the sticks clap, the timecode starts
-          counting frames, and the film strip rolls.
+          Slate turns the player into a film-set clapperboard, and the board is the remote: clap the sticks to roll,
+          the SCENE cell cuts between chapters, and FPS changes speed in camera terms.
         </p>
         <div id="player" class="site-player" tabindex="-1"></div>
-        <p class="site-caption">Try it: press play, scrub the strip, then let it run to the end.</p>
+        <p class="site-caption">Try it: clap the sticks, click SCENE to cut to the next template, then click FPS to overcrank.</p>
       </section>
 
       <section id="notes" class="site-section" aria-labelledby="notes-title">
@@ -42,28 +42,28 @@
           </li>
           <li class="site-scene">
             <span class="site-label">Sc. 02</span>
-            <h3>A board, not a bar</h3>
-            <p>Controls live on a solid ink slate with chalk type, so they read over bright skies and dark interiors alike. One accent, production yellow.</p>
+            <h3>Clap to roll</h3>
+            <p>The sticks are a control. Click them shut to roll the take, with a real clap, and lift them to cut. They hinge at the left and lift a little further when you hover, inviting the clap.</p>
           </li>
           <li class="site-scene">
             <span class="site-label">Sc. 03</span>
-            <h3>Clapsticks with timing</h3>
-            <p>Hinged at the left, open while paused, snapping shut when playback rolls. The angle adapts to the player width, so the gap always looks right.</p>
+            <h3>Scene is the chapter</h3>
+            <p>The SCENE cell follows the chapters track: Scene 04, Unformed. Click it to cut to the next scene, Shift-click for the last, or use the arrow keys while it’s focused.</p>
           </li>
           <li class="site-scene">
             <span class="site-label">Sc. 04</span>
-            <h3>Camera timecode</h3>
-            <p>HH:MM:SS:FF, counting frames smoothly between player updates. Screen readers still get the plain time from Video.js.</p>
+            <h3>FPS is the speed</h3>
+            <p>Speed in camera terms. Slow motion is shot overcranked, so at 0.5× the slate reads 48 fps · Overcrank, and at 2× it reads 12 fps · Undercrank. Click to change speed.</p>
           </li>
           <li class="site-scene">
             <span class="site-label">Sc. 05</span>
-            <h3>The film-strip timeline</h3>
-            <p>Sprocket holes punched through track, buffer, and progress. Chapters read as separate shots, with an editor’s flagged playhead.</p>
+            <h3>A board, not a bar</h3>
+            <p>Controls live on a solid ink slate with chalk type, so they read over bright skies and dark interiors alike. The timeline is a film strip, with chapters as separate shots and an editor’s flagged playhead.</p>
           </li>
           <li class="site-scene">
             <span class="site-label">Sc. 06</span>
             <h3>Set details</h3>
-            <p>A REC/STBY tally light, the title on camera tape, a TAKE counter that ticks with every replay, and a closing “That’s a wrap!”.</p>
+            <p>HH:MM:SS:FF timecode that counts frames smoothly, a REC/STBY tally light, SOUND that reads MOS when muted, a TAKE counter that ticks with every replay, and a closing “That’s a wrap!”.</p>
           </li>
         </ol>
       </section>
@@ -89,6 +89,7 @@
             <div><dt><kbd>F</kbd></dt><dd>Fullscreen</dd></div>
             <div><dt><kbd>C</kbd></dt><dd>Captions</dd></div>
             <div><dt><kbd>0</kbd>–<kbd>9</kbd></dt><dd>Jump to 0–90%</dd></div>
+            <div><dt>On SCENE: <kbd>←</kbd> <kbd>→</kbd></dt><dd>Previous / next scene</dd></div>
           </dl>
         </div>
       </section>

@@ -158,6 +158,19 @@
       box-shadow: 0 0 0 2px var(--slate-ink);
     }
 
+    /* The board's sticks are a pointer control: clap them to roll, lift them to cut. */
+    slate-clapper.slate-sticks {
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    /* Hovering a paused board lifts the stick a little further, inviting the clap. */
+    @media (hover: hover) {
+      :scope:has(.slate-play[data-paused]) slate-clapper:hover .slate-stick-top {
+        rotate: calc(atan2(calc(var(--slate-stick-lift) * 1.6), 100cqw) * -1);
+      }
+    }
+
     :scope:has(.slate-play:not([data-paused])) .slate-stick-top {
       rotate: 0deg;
       transition-duration: 160ms;
@@ -354,13 +367,83 @@
       color: inherit;
     }
 
-    .slate-take {
+    /* Chalk on the board: the hand-written values in the slate cells. */
+    .slate-chalk {
       font-family: var(--slate-font-hand);
       font-size: calc(var(--media-spacing) * 5.5);
       line-height: 0.85;
+      white-space: nowrap;
+      color: var(--slate-chalk);
+    }
+
+    .slate-take {
       color: var(--media-accent);
       rotate: -4deg;
       transform-origin: left center;
+    }
+
+    /* Cells that are also buttons (Scene, FPS): the whole cell is the hit area. */
+    :is(slate-scene, slate-speed) {
+      display: contents;
+    }
+
+    .slate-scene-cell[data-empty] {
+      display: none;
+    }
+
+    .slate-cell-button {
+      align-items: flex-start;
+      margin: 0;
+      background: none;
+      border-block: 0;
+      border-inline-end: 0;
+      border-radius: var(--media-control-radius);
+      font: inherit;
+      color: inherit;
+      text-align: start;
+      cursor: pointer;
+      transition: background-color var(--media-duration-fast);
+    }
+
+    @media (hover: hover) {
+      .slate-cell-button:hover {
+        background-color: var(--slate-ink-raised);
+      }
+
+      .slate-cell-button:hover .slate-chalk {
+        color: var(--media-accent);
+      }
+    }
+
+    .slate-cell-button:focus-visible {
+      outline: 2px solid var(--media-ring);
+      outline-offset: -2px;
+    }
+
+    .slate-cell-value {
+      display: flex;
+      align-items: baseline;
+      gap: calc(var(--media-spacing) * 1.5);
+      min-width: 0;
+    }
+
+    .slate-cell-note {
+      overflow: hidden;
+      max-width: calc(var(--media-spacing) * 24);
+      font-family: var(--slate-font-label);
+      font-size: calc(var(--media-spacing) * 2.5);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--slate-chalk-dim);
+    }
+
+    /* Off-speed: the frame rate and its crank note turn production yellow. */
+    slate-speed[data-crank] :is(.slate-chalk, .slate-cell-note),
+    .slate-sound[data-mos] {
+      color: var(--media-accent);
     }
 
     /* ---------------------------------------------------------------- Top bar: tally light & tape label */
@@ -914,8 +997,18 @@
      * Container queries can't restyle the container itself, so size tokens are overridden on the controls layer, which
      * holds every element that reads them.
      */
+    @container media-root (width < 48rem) {
+      .slate-cell-note {
+        display: none;
+      }
+    }
+
     @container media-root (width < 40rem) {
       .slate-tc-duration {
+        display: none;
+      }
+
+      .slate-sound-cell {
         display: none;
       }
 
@@ -947,7 +1040,7 @@
         --slate-stick-lift: calc(var(--media-spacing) * 4.5);
       }
 
-      .slate-take-cell {
+      :is(.slate-take-cell, .slate-speed-cell .slate-cell) {
         display: none;
       }
 
@@ -976,6 +1069,7 @@
       }
 
       .slate-sticks,
+      .slate-scene-cell .slate-cell,
       .media-title,
       .slate-tc .slate-label,
       .slate-tc-hours {

@@ -9,7 +9,7 @@ import {
 } from '@videojs/html';
 
 /** Nominal frame rate for the HH:MM:SS:FF readout. Cinema slates count at 24. */
-const FRAMES_PER_SECOND = 24;
+export const FRAMES_PER_SECOND = 24;
 const SECONDS_PER_MINUTE = 60;
 const SECONDS_PER_HOUR = 3600;
 const MS_PER_SECOND = 1000;

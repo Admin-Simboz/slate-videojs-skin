@@ -155,10 +155,11 @@
 
         <!-- The slate board. -->
         <div class="video-controls-bottom video-controls-video-bottom slate-board">
-          <div class="slate-sticks" aria-hidden="true">
+          <!-- Clap the sticks to roll, lift them to cut (a pointer shortcut for the play button). -->
+          <slate-clapper class="slate-sticks">
             <span class="slate-stick slate-stick-top"></span>
             <span class="slate-stick slate-stick-base"></span>
-          </div>
+          </slate-clapper>
 
           <div class="video-controls-slider-row">
             <media-time-slider class="media-time-slider" thumb-alignment="edge">
@@ -232,7 +233,31 @@
 
               <div class="slate-cell slate-take-cell" aria-hidden="true">
                 <span class="slate-label">Take</span>
-                <slate-take class="slate-take"></slate-take>
+                <slate-take class="slate-chalk slate-take"></slate-take>
+              </div>
+              <!-- Scene: the chapter playing now; the button cuts to the next one. -->
+              <slate-scene class="slate-scene-cell">
+                <button type="button" class="slate-cell slate-cell-button">
+                  <span class="slate-label" aria-hidden="true">Scene</span>
+                  <span class="slate-cell-value" aria-hidden="true">
+                    <span class="slate-chalk" data-part="number">01</span>
+                    <span class="slate-cell-note slate-scene-name" data-part="name"></span>
+                  </span>
+                </button>
+              </slate-scene>
+              <!-- FPS: playback speed in camera terms (overcrank for slow motion); the button steps the speed. -->
+              <slate-speed class="slate-speed-cell">
+                <button type="button" class="slate-cell slate-cell-button">
+                  <span class="slate-label" aria-hidden="true">FPS</span>
+                  <span class="slate-cell-value" aria-hidden="true">
+                    <span class="slate-chalk" data-part="fps">24</span>
+                    <span class="slate-cell-note" data-part="crank"></span>
+                  </span>
+                </button>
+              </slate-speed>
+              <div class="slate-cell slate-sound-cell" aria-hidden="true">
+                <span class="slate-label">Sound</span>
+                <slate-sound class="slate-chalk slate-sound"></slate-sound>
               </div>
             </media-controls-group>
 
